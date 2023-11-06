@@ -1,0 +1,33 @@
+{% extends 'parent.html' %}
+{% block title %}
+Register Page
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+<div class="container p-5">
+
+<form method="post">
+  {% csrf_token %}
+  <h2 align="center">LOGIN PAGE</h2>
+
+  <h3 style="color:red;">{{msg}}</h3>
+
+  <div class="mb-3">
+    <label for="exampleInputusername" class="form-label">username</label>
+    <input type="text" class="form-control" id="exampleInputusername" name="tbusername" aria-describedby="emailHelp">
+    <div id="usernameHelp" class="form-text">We'll never share your user name with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" name="tbpass" id="exampleInputPassword1">
+  </div>
+
+  <button type="submit" class="btn btn-primary form-control ">LOGIN</button>
+  <br>
+  <br>
+  <a class="btn btn-info form-control" href="{% url 'register' %}" >NOT REGISTERD SIGNUP</a>
+</form>
+  </div>
+{% endblock %}

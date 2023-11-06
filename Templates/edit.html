@@ -1,0 +1,50 @@
+{%extends 'parent.html' %}
+{% block title %}
+Add Student page
+{% endblock %}
+{% block content %}
+<div class="container">
+
+<h2 align="center"> Edit Student page </h2>
+
+
+<!--<h2 align="center">ADD NEW STUDENT</h2>-->
+<form method="post" >
+    {% csrf_token%}
+   <div>
+  <label for="tbname" class="form-label">Name</label>
+       <input type="text" value="{{student.name}}" class="form-control" id="tbname" name="tbname"><br/>
+</div>
+    <div class ="mb-4">
+      <label for="ddlcourse"  class="form-label">course</label>
+        <select name="ddlcourse" id="ddlcourse" class="form-select"  aria-label="Default select example">
+        </div>
+    <option selected>{{student.course}}</option>
+        {% for c in courses %}
+        <option> {{ c.cname }} </option>
+        {% endfor %}
+
+
+</select>
+    <div>
+  <label for="tbphno" class="form-label">Phone No</label>
+      <input type="text" value="{{student.phno}}" class="form-control" id="tbphno" name="tbphno"><br/>
+</div>
+      <div>
+  <label for="tbemail" class="form-label">Email</label>
+
+     <input type="text" value="{{student.email}}" class="form-control"  id="tbemail" name="tbemail"><br/>
+</div>
+
+
+    <input type="submit" value="UPDATE" class="btn btn-outline-warning btn-lg form-control">
+
+
+</form>
+
+
+
+
+</div>
+
+{% endblock %}
